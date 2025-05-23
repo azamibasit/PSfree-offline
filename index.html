@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html manifest="./PSFree.manifest">
+  <head>
+    <script>
+      (function() {
+        const base = document.createElement('base');
+        const currentUrl = window.location.href.toLowerCase();
+
+        if (currentUrl.includes('github')) {
+          // On GitHub Pages (or any URL containing 'github'), use your repo base
+          base.href = '/PSFree/';
+        } else {
+          // Otherwise assume local or other server, use root or detect IP dynamically if you want
+          base.href = '/';
+        }
+
+        document.head.appendChild(base);
+      })();
+    </script>
+    <script>
+        function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));document.title="Installing offline cache: " + Percent + "%";}
+        function DisplayCacheProgress(){setTimeout(function(){;document.title="Cache Success !";},1000);setTimeout(function(){window.location.href = document.referrer;},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+    </script>
+    <meta charset="UTF-8">
+    <title>PSFree | 9.00</title>
+    <link rel='stylesheet' href='css/index.css'>
+  </head>
+  <body>
+    <!-- Floating Menu -->
+    <div class="floating-menu">
+      <button onclick="showpayloads()" class="menu-btn" id="payloadsbtn">Payloads</button>
+      <button class="menu-btn" id="generate-cache-btn">Force-Cache</button>
+      <button class="menu-btn" id="update-exploit">Update-Exploit</button>
+      <button onclick="showabout()" class="menu-btn" id="about-btn">About</button>
+    </div>
+
+    <div class="header">
+      <div class="header-title">PSFree By abdul/Nazky</div>
+    </div>
+
+    <pre id="update-results" style="white-space: pre-wrap; margin-top: 10px;"></pre>
+
+    <h2 id="PS4FW">PS4 FW: 0.00 | Compatible</h2>
+
+    <div id="jailbreak-page">
+      <div class="center-btn-wrap">
+        <button id="jailbreak" class="ps-btn" title="PlayStation">
+          <!-- PlayStation SVG logo -->
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M0.69116 21.9548C-0.506476 22.7935 -0.284724 24.2384 2.44769 25.1419C5.18011 26.0455 8.35603 26.2323 11.1505 25.729C11.0707 25.729 11.3102 25.729 11.1505 25.729V22.8774L8.43588 23.8C7.39792 24.1355 6.35997 24.2194 5.32202 23.9677C4.5236 23.7161 4.68328 23.2129 5.64139 22.7935L11.1505 20.7806V17.6774L3.48565 20.4452C2.52754 20.7806 1.56943 21.2839 0.69116 21.9548ZM19.2146 9.37419V17.5097C22.4881 19.1871 25.0431 17.5097 25.0431 13.1484C25.0431 8.70323 23.5261 6.69032 19.1348 5.09677C16.8193 4.25806 14.4241 3.50323 12.0288 3V27.2387L17.6178 29V8.61935C17.6178 7.69677 17.6178 7.02581 18.2565 7.27742C19.1348 7.52903 19.2146 8.45161 19.2146 9.37419ZM29.5941 20.0258C27.2787 19.1871 24.8036 18.8516 22.4083 19.1032C21.0779 19.1906 19.8294 19.5869 18.5759 20.0258V23.2968L23.7656 21.2839C24.8036 20.9484 25.8415 20.8645 26.8795 21.1161C27.6779 21.3677 27.5182 21.871 26.5601 22.2903L18.5759 25.3935V28.5806L29.5941 24.3032C30.3925 23.9677 31.1111 23.5484 31.7499 22.8774C32.3088 22.0387 32.0692 20.8645 29.5941 20.0258Z"></path> </g></svg>
+        </button>
+        <label>
+          <input type="checkbox" id="autogoldhen" />
+          <p>Auto-GoldHEN</p>
+        </label>
+      </div>
+    </div>
+    
+    <div id="payloads-page" style="display: none;">
+      <nav class="floating-menu-payloads">
+        <button onclick="showtoolspayloads()">Tools</button>
+        <button onclick="showgamepayloads()">Games</button>
+        <button onclick="showlinuxpayloads()">Linux</button>
+      </nav>
+      <div id="payloads-tools" style="display: block;">
+        <h2 id="tools">Tools</h2>
+          <div id="button-container">
+            <button onclick="load_AppDumper()">App-Dumper</button>
+            <button onclick="load_KernelDumper()">Kernel-Dumper</button>
+            <button onclick="load_VTXDumper()">PS4-Dumper-VTX</button>
+            <button onclick="load_App2USB()">App2USB</button>
+            <button onclick="load_DisableUpdates()">Disable-Updates</button>
+            <button onclick="load_EnableUpdates()">Enable-Updates</button>
+            <button onclick="load_FTP()">FTP</button>
+            <button onclick="load_HistoryBlocker()">History-Blocker</button>
+            <button onclick="load_KernelClock()">Kernel-Clock</button>
+            <button onclick="load_Orbis()">Orbis-Toolbox</button>
+            <button onclick="load_PS4Debug()">PS4-Debug</button>
+            <button onclick="load_ToDex()">ToDex</button>
+            <button onclick="load_BackupDB()">Backup-DB</button>
+            <button onclick="load_RestoreDB()">Restore-DB</button>
+            <button onclick="load_RIFRenamer()">RIF-Renamer</button>
+            <button onclick="load_ExitIDU()">ExitIDU</button>
+            <button onclick="load_DisableASLR()">Disable-ASLR</button>
+            <button onclick="load_ModuleDumper()">Module-Dumper</button>
+            <button onclick="load_WebrRTE()">WebRTE</button>
+          </div>
+      </div>
+      <div id="payloads-game" style="display: none;">
+        <h2 id="tools">Game</h2>
+          <div id="button-container">
+            <button onclick="load_GTAArbic()">GTAV-ArabicGuy-1.27</button>
+            <button onclick="load_GTAArbic3()">GTAV-ArabicGuy-1.32</button>
+            <button onclick="load_GTAArbic33()">GTAV-ArabicGuy-1.33</button>
+            <button onclick="load_Oysters100()">RDR2-OystersMenu-1.00</button>
+            <button onclick="load_Oysters113()">RDR2-OystersMenu-1.13</button>
+            <button onclick="load_Oysters119()">RDR2-OystersMenu-1.19</button>
+            <button onclick="load_Oysters124()">RDR2-OystersMenu-1.24</button>
+          </div>
+      </div>
+      <div id="payloads-linux" style="display: none;">
+          <h2 id="tools">Linux</h2>
+          <div id="button-container">
+            <button onclick="load_Linux()">Linux-1GB</button>
+            <button onclick="load_Linux2gb()">Linux-2GB</button>
+            <button onclick="load_Linux3gb()">Linux-3GB</button>
+            <button onclick="load_Linux4gb()">Linux-4GB</button>
+            <button onclick="load_Linux5gb()">Linux-5GB</button>
+          </div>
+      </div>
+    </div>
+    
+    <h3>Debug Console</h3>
+    
+    <div class="console" style="padding: 20px;"><pre id='console'></pre></div>
+
+    <!-- About Popup -->
+    <div class="overlay" id="overlay-popup"></div>
+    <div class="popup" id="about-popup">
+      <h2>About PSFree</h2>
+      <p>Version: 9.00</p>
+      <p>A simple web interface for PS4 jailbreak.</p>
+      <button  onclick="closeabout()" close-btn" id="close-about">Close</button>
+    </div>
+
+    <script src='js/index.js'></script>
+    <script src='js/payloads.js'></script>
+    <script>
+      CheckFW()
+    </script>
+  </body>
+</html>
